@@ -14,7 +14,7 @@ namespace Snp.ePort.Core.Infrastructure.Service
         {
             _cache = cache;
             options = new DistributedCacheEntryOptions();
-            options.SetSlidingExpiration(TimeSpan.FromSeconds(30));
+            options.SetSlidingExpiration(TimeSpan.FromDays(60));
         }
 
         public string Get(string key)

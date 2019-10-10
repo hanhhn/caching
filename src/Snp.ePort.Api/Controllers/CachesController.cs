@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Snp.ePort.Service.RedisCaching;
+using System;
 using System.Threading.Tasks;
 
 namespace Snp.ePort.Api.Controllers
@@ -21,7 +22,6 @@ namespace Snp.ePort.Api.Controllers
         {
             return _redisService.GetAsync(key);
         }
-
 
         [HttpPost]
         [Route("set")]

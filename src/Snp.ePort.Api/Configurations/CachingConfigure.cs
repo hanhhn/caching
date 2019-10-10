@@ -23,12 +23,7 @@ namespace Snp.ePort.Api.Configurations
                 case "Redis":
                     services.AddStackExchangeRedisCache(options =>
                     {
-                        options.Configuration = "139.180.222.250:6379";
-                        options.InstanceName = "*";
-                        options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
-                        {
-                            Password = "@eport2019",
-                        };
+                        options.Configuration = "localhost:6379";
                     });
                     break;
 
