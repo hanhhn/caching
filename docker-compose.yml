@@ -1,0 +1,63 @@
+version: "3.7"
+
+networks:
+  network_lan:
+    name: redis_lan
+    driver: macvlan
+  network_bridge:
+    name: redis_bridge
+    driver: bridge
+
+services:
+    redis-master:
+        image: bitnami/redis:5.0.5
+        container_name: redis-master
+        volumes:
+            - /app/master/data:/bitnami/redis/data
+            - /app/master/config/app.conf:/opt/bitnami/redis/etc/redis.conf 
+        environment:
+        #   ALLOW_EMPTY_PASSWORD: "yes"
+            - REDIS_PASSWORD: "@eport2019"
+            - REDIS_REPLICATION_MODE: "master"
+        networks:
+            - "redis_lan"
+            - "redis_bridge"
+        ports:
+          - "6379:6379"
+        restart: always
+
+    redis-slave:
+        image: bitnami/redis:5.0.5
+        container_name: redis-slave
+        depends_on:
+            - redis-master
+        environment:
+            - REDIS_REPLICATION_MODE: "slave"
+            - REDIS_MASTER_HOST: redis-master
+            - REDIS_MASTER_PORT_NUMBER: 6379
+            - REDIS_MASTER_PASSWORD: "@eport2019"
+            - REDIS_PASSWORD: "@eport2019"
+        networks:
+            - "redis_bridge"
+        restart: always
+
+
+            
+    # api:
+    #     build:
+    #       context: .
+    #       dockerfile: Dockerfile
+    #     container_name: ksc_api
+    #     #volumes:
+    #     #  - /app/ksc/api:/app
+    #     depends_on:
+    #       - db
+    #     environment:
+    #       #https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.2
+    #       - ASPNETCORE_ENVIRONMENT=Staging #Development || Production || Staging
+    #       #- ASPNETCORE_URLS=https://localhost;http://localhost
+    #       #- ASPNETCORE_HTTPS_PORT=5001
+    #     ports:
+    #       - "5000:80"
+    #       - "5001:443"
+    #     restart: always
