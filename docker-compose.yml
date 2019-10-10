@@ -9,7 +9,6 @@ services:
         container_name: redis-master
         volumes:
             - /app/redis/data:/data
-            - /app/redis/config/app.conf:/usr/local/etc/redis/redis.conf
         ports:
           - "7000:6379"
         restart: always
