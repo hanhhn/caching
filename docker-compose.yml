@@ -1,50 +1,29 @@
 version: "3.7"
 
 services:
+
     master:
-        image: bitnami/redis:5.0.5
+        build:
+            context: ./config/master
+            dockerfile: Dockerfile
         container_name: redis-master
         volumes:
-            - /app/master/data:/bitnami/redis/data
-            - /app/master/config/app.conf:/opt/bitnami/redis/etc/redis.conf 
-        environment:
-        #   ALLOW_EMPTY_PASSWORD: "yes"
-            REDIS_PASSWORD: "@eport2019"
-            REDIS_REPLICATION_MODE: "master"
+            - /app/redis/data:/data
+            - /app/redis/config/app.conf:/usr/local/etc/redis/redis.conf
         ports:
-          - "6379:6379"
+          - "7000:6379"
         restart: always
+        
 
-    slave:
-        image: bitnami/redis:5.0.5
-        container_name: redis-slave
-        depends_on:
-            - master
-        environment:
-            REDIS_REPLICATION_MODE: "slave"
-            REDIS_MASTER_HOST: master
-            REDIS_MASTER_PORT_NUMBER: 6379
-            REDIS_MASTER_PASSWORD: "@eport2019"
-            REDIS_PASSWORD: "@eport2019"
-        restart: always
-
-
-            
-    # api:
-    #     build:
-    #       context: .
-    #       dockerfile: Dockerfile
-    #     container_name: ksc_api
-    #     #volumes:
-    #     #  - /app/ksc/api:/app
+    # redis-slave:
+    #     image: redis
+    #     container_name: slave-redis
     #     depends_on:
-    #       - db
+    #         - redis-master
     #     environment:
-    #       #https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.2
-    #       - ASPNETCORE_ENVIRONMENT=Staging #Development || Production || Staging
-    #       #- ASPNETCORE_URLS=https://localhost;http://localhost
-    #       #- ASPNETCORE_HTTPS_PORT=5001
-    #     ports:
-    #       - "5000:80"
-    #       - "5001:443"
+    #         REDIS_REPLICATION_MODE: "slave"
+    #         REDIS_MASTER_HOST: redis-master
+    #         REDIS_MASTER_PORT_NUMBER: 6379
+    #         REDIS_MASTER_PASSWORD: "@eport2019"
+    #         REDIS_PASSWORD: "@eport2019"
     #     restart: always
