@@ -13,27 +13,27 @@ services:
           - "7001:6379"
         restart: always
  
-    master-2:
-        build:
-            context: ./config/master-2
-            dockerfile: Dockerfile
-        container_name: redis-master-2
-        volumes:
-            - /app/redis/data:/data
-        ports:
-          - "7002:6379"
-        restart: always
+    # master-2:
+    #     build:
+    #         context: ./config/master-2
+    #         dockerfile: Dockerfile
+    #     container_name: redis-master-2
+    #     volumes:
+    #         - /app/redis/data:/data
+    #     ports:
+    #       - "7002:6379"
+    #     restart: always
                 
-    master-3:
-        build:
-            context: ./config/master-3
-            dockerfile: Dockerfile
-        container_name: redis-master-3
-        volumes:
-            - /app/redis/data:/data
-        ports:
-          - "7003:6379"
-        restart: always
+    # master-3:
+    #     build:
+    #         context: ./config/master-3
+    #         dockerfile: Dockerfile
+    #     container_name: redis-master-3
+    #     volumes:
+    #         - /app/redis/data:/data
+    #     ports:
+    #       - "7003:6379"
+    #     restart: always
         
     # redis-slave:
     #     image: redis
