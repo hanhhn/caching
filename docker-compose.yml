@@ -9,8 +9,8 @@ services:
             - /app/master/config/app.conf:/opt/bitnami/redis/etc/redis.conf 
         environment:
         #   ALLOW_EMPTY_PASSWORD: "yes"
-            - REDIS_PASSWORD: "@eport2019"
-            - REDIS_REPLICATION_MODE: "master"
+            REDIS_PASSWORD: "@eport2019"
+            REDIS_REPLICATION_MODE: "master"
         ports:
           - "6379:6379"
         restart: always
@@ -21,11 +21,11 @@ services:
         depends_on:
             - redis-master
         environment:
-            - REDIS_REPLICATION_MODE: "slave"
-            - REDIS_MASTER_HOST: redis-master
-            - REDIS_MASTER_PORT_NUMBER: 6379
-            - REDIS_MASTER_PASSWORD: "@eport2019"
-            - REDIS_PASSWORD: "@eport2019"
+            REDIS_REPLICATION_MODE: "slave"
+            REDIS_MASTER_HOST: redis-master
+            REDIS_MASTER_PORT_NUMBER: 6379
+            REDIS_MASTER_PASSWORD: "@eport2019"
+            REDIS_PASSWORD: "@eport2019"
         restart: always
 
 
