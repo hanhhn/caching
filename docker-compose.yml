@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    redis-master:
+    master:
         image: bitnami/redis:5.0.5
         container_name: redis-master
         volumes:
@@ -15,11 +15,11 @@ services:
           - "6379:6379"
         restart: always
 
-    redis-slave:
+    slave:
         image: bitnami/redis:5.0.5
         container_name: redis-slave
         depends_on:
-            - redis-master
+            - master
         environment:
             REDIS_REPLICATION_MODE: "slave"
             REDIS_MASTER_HOST: redis-master
