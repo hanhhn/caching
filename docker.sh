@@ -1,1 +1,0 @@
-docker-compose up --detach --scale redis-master=1 --scale redis-slave=4
