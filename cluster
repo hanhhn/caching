@@ -1,5 +1,5 @@
 start_cmd='redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes'
-redis_image='redis:5.0-rc'
+redis_image='redis'
 network_name='redis_cluster_net'
 
 docker network create $network_name
