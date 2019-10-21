@@ -1,4 +1,4 @@
-FROM redis:latest
+FROM redis:5.0.6
 
 LABEL maintainer "hanhhn <hngochanh@outlook.com>"
 
