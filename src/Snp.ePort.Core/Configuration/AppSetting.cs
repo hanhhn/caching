@@ -1,10 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Snp.ePort.Core.Configuration
+﻿namespace Snp.ePort.Core.Configuration
 {
-    class AppSetting
+    public class AppSetting
     {
+        public static int KeepAlive()
+        {
+            return 30;
+        }
+
+        public static int ConnectTimeout()
+        {
+            return 15000;
+        }
+
+        public static int SyncTimeout()
+        {
+            return 15000;
+        }
+
+        public static bool SSL()
+        {
+            return false;
+        }
+
+        public static string[] Connection()
+        {
+            return null;
+        }
     }
 }

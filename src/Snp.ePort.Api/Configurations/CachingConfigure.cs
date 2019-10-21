@@ -24,6 +24,14 @@ namespace Snp.ePort.Api.Configurations
                     services.AddStackExchangeRedisCache(options =>
                     {
                         options.Configuration = "localhost:6379";
+
+                        options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+                        {
+                            KeepAlive = 30,
+                            DefaultDatabase = 0,
+                            ConnectTimeout = 15000,
+                            Ssl = false,
+                        };
                     });
                     break;
 

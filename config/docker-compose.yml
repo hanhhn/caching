@@ -2,15 +2,15 @@ version: "3.7"
 
 services:
 
-    master-1:
+    redis:
         build:
-            context: ./config/master-1
+            context: .
             dockerfile: Dockerfile
-        container_name: redis-master-1
+        container_name: redis
         volumes:
             - /app/redis/data:/data
         ports:
-          - "7001:6379"
+          - "7001-7012:6379"
         restart: always
  
     # master-2:
