@@ -3,11 +3,11 @@ version: '3.7'
 services:
 
     redis:
-        image: redis
+        image: config_redis
         volumes:
-            - app/redis/data:/data
+            - "app/redis/data:/data"
         ports:
-            - 7000:6379
+            - 7001-7009:6379
         deploy:
             mode: replicated
             replicas: 9
@@ -16,7 +16,7 @@ services:
 
 
 
-#OK
+####----OK
 # version: '3.7'
 
 # services:
@@ -24,14 +24,24 @@ services:
 #     redis:
 #         image: config_redis
 #         volumes:
-#             - app/redis/data:/data
+#             - redisVol:/data
 #         ports:
-#             - 7000:6379
-#         # deploy:
-#         #     mode: replicated
-#         #     replicas: 1
+#             - 7001-7009:6379
+#         deploy:
+#             mode: replicated
+#             replicas: 9
 #         restart: always
 
-# # volumes:
-# #     redisVol:
-# #         name: 'app/redis/data-{{.Task.Slot}}'
+#     # sentinel:
+#     #     build:
+#     #         context: ./sentinel
+#     #         dockerfile: Dockerfile
+#     #     environment:
+#     #         - SENTINEL_DOWN_AFTER=5000
+#     #         - SENTINEL_FAILOVER=5000
+#     #     depends_on:
+#     #         - redis
+
+# volumes:
+#     redisVol:
+#         name: 'app/redis/data-{{.Task.Slot}}'
