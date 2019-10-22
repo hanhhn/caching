@@ -1,24 +1,35 @@
-version: "3.7"
-
+version: '3.1'
 services:
+  redis:
+    image: redis
+    volumes:
+      - redisVol:/data
+volumes:
+  redisVol:
+    external:
+      name: 'app/redis/data/{{.Task.Slot}}'
 
-    redis:
-        build:
-            context: ./redis
-            dockerfile: Dockerfile
-        volumes:
-            - "app/redis/data/{{.Task.Slot}}:/data"
-        ports:
-            - "7001-7009:6379"
-        deploy:
-            mode: replicated
-            replicas: 9
-            endpoint_mode: dnsrr
-            restart_policy:
-                condition: on-failure
-                delay: 5s
-                max_attempts: 5
-        restart: always
+# version: "3.7"
+
+# services:
+
+#     redis:
+#         build:
+#             context: ./redis
+#             dockerfile: Dockerfile
+#         volumes:
+#             - "app/redis/data/{{.Task.Slot}}:/data"
+#         ports:
+#             - "7001-7009:6379"
+#         deploy:
+#             mode: replicated
+#             replicas: 9
+#             endpoint_mode: dnsrr
+#             restart_policy:
+#                 condition: on-failure
+#                 delay: 5s
+#                 max_attempts: 5
+#         restart: always
 
     # sentinel:
     #     build:
