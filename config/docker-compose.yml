@@ -5,7 +5,7 @@ services:
     redis:
         image: config_redis
         volumes:
-            - "app/redis/data:/data"
+            - redisData:/data
         ports:
             - 7001-7009:6379
         deploy:
@@ -13,7 +13,9 @@ services:
             replicas: 9
         restart: always
 
-
+volumes:
+    redisData:
+        name: app/redis/data
 
 
 ####----OK
