@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.7'
 
 services:
 
@@ -7,7 +7,7 @@ services:
         volumes:
             - redisVol:/data
         ports:
-            - "7000:6379"
+            - 7000:6379
         deploy:
             mode: replicated
             replicas: 9
