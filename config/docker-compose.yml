@@ -2,10 +2,10 @@ version: "3.7"
 
 services:
 
-    olumes:
+    volumes:
         redisVol:
             external:
-            name: '{{index .Service.Labels "com.docker.stack.namespace"}}_redisVol-{{.Task.Slot}}'
+                name: '{{index .Service.Labels "com.docker.stack.namespace"}}_redisVol-{{.Task.Slot}}'
 
     redis:
         build:
