@@ -5,12 +5,12 @@ services:
     redis:
         image: config_redis
         volumes:
-            - redisVol:/data
+            - app/redis/data:/data
         ports:
-            - 7001-7009:6379
-        deploy:
-            mode: replicated
-            replicas: 9
+            - 7000:6379
+        # deploy:
+        #     mode: replicated
+        #     replicas: 1
         restart: always
 
     # sentinel:
@@ -23,6 +23,6 @@ services:
     #     depends_on:
     #         - redis
 
-volumes:
-    redisVol:
-        name: 'app/redis/data-{{.Task.Slot}}'
+# volumes:
+#     redisVol:
+#         name: 'app/redis/data-{{.Task.Slot}}'
