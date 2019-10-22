@@ -6,8 +6,8 @@ services:
         build:
             context: ./redis
             dockerfile: Dockerfile
-        # volumes:
-        #     - "app/redis/data/{{.Task.Slot}}:/data"
+        volumes:
+            - redisVolume:/data
         ports:
             - "7001-7009:6379"
         restart: always
@@ -21,3 +21,8 @@ services:
     #         - SENTINEL_FAILOVER=5000
     #     depends_on:
     #         - redis
+
+
+    redisVolume:
+        external:
+            name: 'app/redis/data/{{.Task.Slot}}'
