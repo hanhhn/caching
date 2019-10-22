@@ -7,8 +7,8 @@ services:
             context: ./redis
             dockerfile: Dockerfile
         container_name: "redis-{{.Task.Slot}}"
-        volumes:
-            - "app/redis/data/{{.Task.Slot}}:/data"
+        # volumes:
+        #     - "app/redis/data/{{.Task.Slot}}:/data"
         ports:
             - "7001-7009:6379"
         restart: always
