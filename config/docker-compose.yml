@@ -7,7 +7,7 @@ services:
         volumes:
             - redisVol:/data
         ports:
-            - 7000:6379
+            - 7001-7009:6379
         deploy:
             mode: replicated
             replicas: 9
