@@ -2,17 +2,17 @@ version: "3.7"
 
 services:
 
-    volumes:
-        redisVolume:
-            name: 'app/redis/data/{{.Task.Slot}}'
-            driver: local
+    olumes:
+        redisVol:
+            external:
+            name: '{{index .Service.Labels "com.docker.stack.namespace"}}_redisVol-{{.Task.Slot}}'
 
     redis:
         build:
             context: ./redis
             dockerfile: Dockerfile
         volumes:
-            - redisVolume:/data
+            - redisVol:/data
         ports:
             - "7001-7009:6379"
         deploy:
