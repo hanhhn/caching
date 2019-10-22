@@ -3,9 +3,7 @@ version: '3.2'
 services:
 
     redis:
-        build:
-            context: ./redis
-            dockerfile: Dockerfile
+        image: config_redis
         volumes:
             - "/app/redis/data:/data"
         ports:
