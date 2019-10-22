@@ -24,6 +24,4 @@ services:
     #         - redis
 
 volumes:
-    redisVol:
-        external:
-            name: 'app/redis/data-{{.Task.Slot}}'
+    redisVol.name: 'app/redis/data-{{.Task.Slot}}'
