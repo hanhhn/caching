@@ -10,6 +10,14 @@ services:
             - redisVolume:/data
         ports:
             - "7001-7009:6379"
+        deploy:
+            mode: replicated
+            replicas: 9
+            endpoint_mode: dnsrr
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 5
         restart: always
 
     # sentinel:
