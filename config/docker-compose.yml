@@ -6,7 +6,7 @@ services:
         build:
             context: ./redis
             dockerfile: Dockerfile
-        container_name: redis-{{.Task.Slot}}
+        container_name: redis-test
         # volumes:
         #     - "app/redis/data/{{.Task.Slot}}:/data"
         ports:
