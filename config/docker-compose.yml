@@ -7,7 +7,7 @@ services:
 volumes:
   redisVol:
     external:
-      name: 'app/redis/data/{{.Task.Slot}}'
+      name: 'app/redis/data-{{.Task.Slot}}'
 
 # version: "3.7"
 
