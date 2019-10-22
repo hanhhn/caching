@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.1'
 
 services:
 
@@ -26,4 +26,4 @@ services:
     volumes:
         redis-data:
             external: true
-            name: 'app/redis/data'
+            name: 'app/redis/data-{{.Task.Slot}}'
