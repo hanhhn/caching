@@ -5,7 +5,7 @@ services:
     redis:
         image: config_redis
         volumes:
-            - "/app/redis/data:/data"
+            - redisVol:/data
         ports:
             - "7000:6379"
         deploy:
@@ -23,4 +23,7 @@ services:
     #     depends_on:
     #         - redis
 
-
+    volumes:
+        redisVol:
+            external:
+                name: '/app/redis/data-{{.Task.Slot}}'
