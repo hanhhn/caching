@@ -2,6 +2,11 @@ version: "3.7"
 
 services:
 
+    volumes:
+        redisVolume:
+            name: 'app/redis/data/{{.Task.Slot}}'
+            driver: local
+
     redis:
         build:
             context: ./redis
@@ -31,7 +36,3 @@ services:
     #         - redis
 
 
-    volumes:
-        redisVolume:
-            external:
-                name: 'app/redis/data/{{.Task.Slot}}'
