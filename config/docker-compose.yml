@@ -3,9 +3,9 @@ version: '3.7'
 services:
 
     redis:
-        image: config_redis
-        volumes:
-            - redisData:/data
+        image: redis
+        # volumes:
+        #     - redisData:/data
         ports:
             - 7001-7009:6379
         deploy:
