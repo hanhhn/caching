@@ -5,6 +5,6 @@ services:
     volumes:
       - redisVol:/data
 volumes:
-  redisVol:
-    external:
-      name: 'redisVol-{{.Task.Slot}}'
+    redisVol:
+        external: true
+        name: 'app/redis/data-{{.Task.Slot}}'
