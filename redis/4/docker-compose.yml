@@ -28,4 +28,3 @@ volumes:
 networks:
   database:
     driver: overlay
-    scope: swarm
