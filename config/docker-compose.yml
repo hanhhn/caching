@@ -15,7 +15,7 @@ services:
 
 volumes:
     redisData:
-        name: app/redis/data
+        name: app/redis/data-{{.Task.Slot}}
 
 
 ####----OK
