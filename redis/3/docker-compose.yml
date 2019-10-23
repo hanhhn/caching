@@ -4,9 +4,22 @@ services:
 
     redis:
         image: eport-redis
-        container_name: redis
         volumes:
-            - "/app/redis/data:/data"
+          - redis-data:/data
         ports:
-          - "7000:6379"
-        restart: always
+          - "7001-7009:6379"
+        deploy:
+          mode: replicated
+          replicas: 6
+          restart_policy:
+            condition: on-failure
+
+
+volumes:
+    redis-data:
+        name: 'redis-{{.Task.Slot}}'
+        driver: local
+        driver_opts:
+          type: none
+          o: bind
+          device: "/app/redis/data-{{.Task.Slot}}'"
