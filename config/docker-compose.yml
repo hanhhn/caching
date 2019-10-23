@@ -4,8 +4,8 @@ services:
 
     redis:
         image: redis
-        # volumes:
-        #     - redisData:/data
+        volumes:
+            - redisData:/data
         ports:
             - 7001-7009:6379
         deploy:
