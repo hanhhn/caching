@@ -1,0 +1,69 @@
+version: '3.7'
+
+services:
+
+    redis-1:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-1
+        volumes:
+            - "/app/redis/data-1:/data"
+        ports:
+          - "7001:6379"
+        restart: always
+
+    redis-2:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-2
+        volumes:
+            - "/app/redis/data-2:/data"
+        ports:
+          - "7002:6379"
+        restart: always
+
+    redis-3:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-3
+        volumes:
+            - "/app/redis/data-3:/data"
+        ports:
+          - "7003:6379"
+        restart: always
+
+    redis-4:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-4
+        volumes:
+            - "/app/redis/data-4:/data"
+        ports:
+          - "7004:6379"
+        restart: always
+
+    redis-5:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-5
+        volumes:
+            - "/app/redis/data-5:/data"
+        ports:
+          - "7005:6379"
+        restart: always
+
+    redis-6:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        container_name: redis-6
+        volumes:
+            - "/app/redis/data-6:/data"
+        ports:
+          - "7006:6379"
+        restart: always
