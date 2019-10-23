@@ -4,10 +4,11 @@ services:
 
     redis:
         image: eport-redis
+        container_name: redis-{{.Task.Slot}}
         volumes:
           - redis-data:/data
         ports:
-          - "7001-7009:6379"
+          - "7000:6379"
         deploy:
           mode: replicated
           replicas: 6
