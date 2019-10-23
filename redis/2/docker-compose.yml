@@ -17,4 +17,4 @@ volumes:
     redis-data:
         driver: local
         driver_opts:
-            device: "/app/redis/data"
+            device: ":/app/redis/data"
