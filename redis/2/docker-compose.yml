@@ -17,4 +17,4 @@ volumes:
     redis-data:
         driver: local
         driver_opts:
-            mountpoint: /app/redis/data-{{.Task.Slot}}
+            device: "/app/redis/data-{{.Task.Slot}}"
