@@ -4,7 +4,7 @@ services:
 
     redis-1:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-1
         volumes:
@@ -15,7 +15,7 @@ services:
 
     redis-2:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-2
         volumes:
@@ -26,7 +26,7 @@ services:
 
     redis-3:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-3
         volumes:
@@ -37,7 +37,7 @@ services:
 
     redis-4:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-4
         volumes:
@@ -48,7 +48,7 @@ services:
 
     redis-5:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-5
         volumes:
@@ -59,7 +59,7 @@ services:
 
     redis-6:
         build:
-            context: ./redis
+            context: ../config
             dockerfile: Dockerfile
         container_name: redis-6
         volumes:
