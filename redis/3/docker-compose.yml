@@ -14,12 +14,11 @@ services:
           restart_policy:
             condition: on-failure
 
-
 volumes:
     redis-data:
-        name: 'redis-{{.Task.Slot}}'
+        name: "redis-{{.Task.Slot}}"
         driver: local
         driver_opts:
           type: none
           o: bind
-          device: "/app/redis/data-{{.Task.Slot}}'"
+          device: "/app/redis/data-{{.Task.Slot}}"
