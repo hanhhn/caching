@@ -17,7 +17,7 @@ services:
  
 volumes:
     redisVol:
-        name: :app/redis/data-1"
+        name: "app/redis/data-1"
 
 
 ####----OK
