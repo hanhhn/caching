@@ -15,4 +15,4 @@ services:
 
 volumes:
     redis-data:
-        name: '/app/redis/data-{{.Task.Slot}}'
+        name: "/app/redis/data-1"
