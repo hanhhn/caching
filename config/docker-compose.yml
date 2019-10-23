@@ -71,17 +71,17 @@ services:
 
 volumes:
     data1:
-        name: app/redis/data1
+        name: 'app/redis/data1'
     data2:
-        name: app/redis/data2
+        name: 'app/redis/data2'
     data3:
-        name: app/redis/data3
+        name: 'app/redis/data3'
     data4:
-        name: app/redis/data4
+        name: 'app/redis/data4'
     data5:
-        name: app/redis/data5
+        name: 'app/redis/data5'
     data6:
-        name: app/redis/data6
+        name: 'app/redis/data6'
 
 ####----OK
 # version: '3.7'
