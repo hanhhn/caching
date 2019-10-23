@@ -16,9 +16,9 @@ services:
 
 volumes:
     redis-data:
-        name: "test-{{.Task.Slot}}"
+        name: "data-{{.Task.Slot}}"
         driver: local
         driver_opts:
           type: none
           o: bind
-          device: "/app/redis/test-{{.Task.Slot}}"
+          device: "/app/redis/data-{{.Task.Slot}}"
