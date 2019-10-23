@@ -15,4 +15,6 @@ services:
 
 volumes:
     redis-data:
-        name: "/app/redis/data-1"
+        driver: local
+        driver_opts:
+            mountpoint: /app/redis/data-{{.Task.Slot}}
