@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+
+    redis:
+        image: eport-redis
+        container_name: redis
+        volumes:
+            - "/app/redis/data:/data"
+        ports:
+          - "7000:6379"
+        restart: always
