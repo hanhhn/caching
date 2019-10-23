@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+    redis:
+        image: eport-redis
+        volumes:
+          - redis-data:/data
+        ports:
+          - "7000:6379"
+        deploy:
+          mode: replicated
+          replicas: 6
+          restart_policy:
+            condition: any
+
+volumes:
+    redis-data:
+        name: "test-{{.Task.Slot}}"
+        driver: local
+        driver_opts:
+          type: none
+          o: bind
+          device: "/app/redis/test-{{.Task.Slot}}"
