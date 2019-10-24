@@ -3,16 +3,10 @@ for port in `seq 7001 7006`; do \
     echo "remove /app/redis/data-"$port
 done
 
-for port in `seq 7001 7006`; do \
-    docker build -t eport-redis-$port .
-done
-
-
-docker images
+docker-compose -f docker-compose.yml up -d --build
 
 sleep 3
 
-docker-compose -f docker-compose.yml up -d --build
 docker ps -a
 sudo bash cluster.sh
 

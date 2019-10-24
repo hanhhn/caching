@@ -15,6 +15,7 @@ done
 sleep 3
 
 echo "cluster hosts "$cluster_hosts
+sudo echo $cluster_hosts > cluster_hosts.txt
 echo "creating cluster...."
 echo 'yes' | docker run -i --rm --net $network_database redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 1;
 
