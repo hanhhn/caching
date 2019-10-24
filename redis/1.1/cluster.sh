@@ -1,6 +1,6 @@
 
-echo "Implement for Docker version 18.09.7"
-echo "current version" && docker --version
+echo "implement for Docker version 18.09.7"
+echo "current version: " | docker --version
 network_database='net_database'
 #---------- create the cluster ------------------------
 
@@ -13,5 +13,5 @@ for port in `seq 7001 7006`; do \
 done
 
 echo "cluster hosts "$cluster_hosts
-# echo "creating cluster...."
-# echo 'yes' | docker run -i --rm --net $network_name $redis_image redis-cli --cluster create $cluster_hosts --cluster-replicas 3;
+echo "creating cluster...."
+echo 'yes' | docker run -i --rm --net $network_name redis redis-cli --cluster create $cluster_hosts --cluster-replicas 3;
