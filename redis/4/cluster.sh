@@ -1,3 +1,12 @@
+start_cmd='redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes'
+redis_image='redis'
+network_name='redis_cluster_net'
+
+docker network create $network_name
+echo $network_name " created"
+
+#---------- create the cluster ------------------------
+
 for port in `seq 6379 6384`; do \
  docker run -d --name "redis-"$port -p $port:6379 --net $network_name $redis_image $start_cmd;
  echo "created redis cluster node redis-"$port

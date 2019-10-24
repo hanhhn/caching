@@ -28,3 +28,4 @@ volumes:
 networks:
   database:
     driver: overlay
+    external: true
