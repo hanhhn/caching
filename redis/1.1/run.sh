@@ -5,8 +5,13 @@ for port in `seq 7001 7006`; do \
     echo "remove /app/redis/data-"$port
 done
 
-sudo docker-compose -f docker-compose.yml up -d --build
-sudo docker ps -a
+docker build -t eport-redis ../config
+docker images
+
+sleep 3
+
+docker-compose -f docker-compose.yml up -d --build
+docker ps -a
 sudo bash cluster.sh
 
 # sudo docker-compose -f docker-compose.yml up -d --build --remove-orphans --force-recreate

@@ -10,8 +10,9 @@ for port in `seq 7001 7006`; do \
     hostip=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "redis-"$port`
     echo "IP for cluster node redis-"$port "is" $hostip
     cluster_hosts="$cluster_hosts$hostip:6379 ";
-    sleep 1
 done
+
+sleep 3
 
 echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."

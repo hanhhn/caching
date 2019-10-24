@@ -3,9 +3,7 @@ version: '3.7'
 services:
 
     redis-7001:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7001
         networks:
             - database
@@ -16,9 +14,7 @@ services:
         restart: always
 
     redis-7002:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7002
         networks:
             - database        
@@ -29,9 +25,7 @@ services:
         restart: always
 
     redis-7003:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7003
         networks:
             - database        
@@ -42,9 +36,7 @@ services:
         restart: always
 
     redis-7004:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7004
         networks:
             - database        
@@ -55,9 +47,7 @@ services:
         restart: always
 
     redis-7005:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7005
         networks:
             - database        
@@ -68,9 +58,7 @@ services:
         restart: always
 
     redis-7006:
-        build:
-            context: ../config
-            dockerfile: Dockerfile
+        image: eport-redis
         container_name: redis-7006
         networks:
             - database        
