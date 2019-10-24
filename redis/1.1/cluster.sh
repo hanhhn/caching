@@ -1,6 +1,6 @@
 
 echo "implement for Docker version 18.09.7"
-echo "current version: " | docker --version
+echo "current version: " && docker --version
 network_database='net_database'
 #---------- create the cluster ------------------------
 
@@ -14,4 +14,5 @@ done
 
 echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."
-echo 'yes' | docker run -i --rm --net $network_name redis redis-cli --cluster create $cluster_hosts --cluster-replicas 3;
+echo 'yes' | docker run -it --rm --net $network_name redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 3;
+
