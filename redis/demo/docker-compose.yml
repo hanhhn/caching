@@ -1,0 +1,104 @@
+version: '3.7'
+
+services:
+
+    redis-7001:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7001.conf
+        image: eport-redis-7001
+        container_name: redis-7001
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7001:/data"
+        ports:
+          - "7001:6379"
+        restart: always
+
+    redis-7002:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7002.conf
+        image: eport-redis-7002
+        container_name: redis-7002
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7002:/data"
+        ports:
+          - "7002:6379"
+        restart: always
+
+    redis-7003:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7003.conf
+        image: eport-redis-7003
+        container_name: redis-7003
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7003:/data"
+        ports:
+          - "7003:6379"
+        restart: always
+
+    redis-7004:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7004.conf
+        image: eport-redis-7004
+        container_name: redis-7004
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7004:/data"
+        ports:
+          - "7004:6379"
+        restart: always
+
+    redis-7005:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7005.conf
+        image: eport-redis-7005
+        container_name: redis-7005
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7005:/data"
+        ports:
+          - "7005:6379"
+        restart: always
+
+    redis-7006:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                fileconfig: 7006.conf
+        image: eport-redis-7006
+        container_name: redis-7006
+        networks:
+            - database
+        volumes:
+            - "/app/redis/data-7006:/data"
+        ports:
+          - "7006:6379"
+        restart: always
+
+networks:
+  database:
+    driver: bridge
+    name: net_database
