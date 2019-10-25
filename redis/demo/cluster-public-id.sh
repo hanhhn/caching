@@ -7,14 +7,14 @@ network_database='net_database'
 cluster_hosts=''
 
 for port in `seq 7001 7006`; do \
-    hostip=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "redis-"$port`
+    hostip=`172.16.50.189:$port`
     echo "IP for cluster node redis-"$port "is" $hostip
-    cluster_hosts="$cluster_hosts$hostip:6379 ";
+    cluster_hosts="$cluster_hosts$hostip ";
 done
 
 sleep 3
 
 echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."
-echo 'yes' | docker run -i --rm --net $network_database redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 1;
+echo 'yes' | redis-cli --cluster create $cluster_hosts --cluster-replicas 1;
 
