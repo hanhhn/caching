@@ -7,7 +7,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7001.conf
+                FILECONF: 7001.conf
         image: eport-redis-7001
         container_name: redis-7001
         networks:
@@ -23,7 +23,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7002.conf
+                FILECONF: 7002.conf
         image: eport-redis-7002
         container_name: redis-7002
         networks:
@@ -39,7 +39,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7003.conf
+                FILECONF: 7003.conf
         image: eport-redis-7003
         container_name: redis-7003
         networks:
@@ -55,7 +55,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7004.conf
+                FILECONF: 7004.conf
         image: eport-redis-7004
         container_name: redis-7004
         networks:
@@ -71,7 +71,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7005.conf
+                FILECONF: 7005.conf
         image: eport-redis-7005
         container_name: redis-7005
         networks:
@@ -87,7 +87,7 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                fileconfig: 7006.conf
+                FILECONF: 7006.conf
         image: eport-redis-7006
         container_name: redis-7006
         networks:
