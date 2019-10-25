@@ -2,14 +2,13 @@ version: '3.7'
 
 services:
 
-    eport-redis-7001:
+    redis-7001:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7001.conf
         image: eport-redis-7001
-        container_name: redis-7001
         networks:
             - database
         volumes:
@@ -18,14 +17,13 @@ services:
           - "7001:6379"
         restart: always
 
-    eport-redis-7002:
+    redis-7002:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7002.conf
         image: eport-redis-7002
-        container_name: redis-7002
         networks:
             - database
         volumes:
@@ -34,14 +32,13 @@ services:
           - "7002:6379"
         restart: always
 
-    eport-redis-7003:
+    redis-7003:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7003.conf
         image: eport-redis-7003
-        container_name: redis-7003
         networks:
             - database
         volumes:
@@ -50,14 +47,13 @@ services:
           - "7003:6379"
         restart: always
 
-    eport-redis-7004:
+    redis-7004:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7004.conf
         image: eport-redis-7004
-        container_name: redis-7004
         networks:
             - database
         volumes:
@@ -66,14 +62,13 @@ services:
           - "7004:6379"
         restart: always
 
-    eport-redis-7005:
+    redis-7005:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7005.conf
         image: eport-redis-7005
-        container_name: redis-7005
         networks:
             - database
         volumes:
@@ -82,14 +77,13 @@ services:
           - "7005:6379"
         restart: always
 
-    eport-redis-7006:
+    redis-7006:
         build:
             context: .
             dockerfile: Dockerfile
             args:
                 FILECONF: 7006.conf
         image: eport-redis-7006
-        container_name: redis-7006
         networks:
             - database
         volumes:

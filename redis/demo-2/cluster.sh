@@ -1,7 +1,7 @@
 
 echo "implement for Docker version 18.09.7"
 echo "current version: " && docker --version
-network_database='net_database'
+network_database='net_database_redis'
 #---------- create the cluster ------------------------
 
 cluster_hosts=''
