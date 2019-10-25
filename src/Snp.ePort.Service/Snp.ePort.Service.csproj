@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RedisCaching\IRedisConnection.cs" />
+    <Compile Remove="RedisCaching\RedisConnection.cs" />
+    <Compile Remove="RedisCaching\RedisDatabaseNumber.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Snp.ePort.Core\Snp.ePort.Core.csproj" />
   </ItemGroup>
 
