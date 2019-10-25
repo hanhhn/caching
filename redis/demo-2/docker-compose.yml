@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
 
-    redis-7001:
+    eport-redis-7001:
         build:
             context: .
             dockerfile: Dockerfile
@@ -18,7 +18,7 @@ services:
           - "7001:6379"
         restart: always
 
-    redis-7002:
+    eport-redis-7002:
         build:
             context: .
             dockerfile: Dockerfile
@@ -34,7 +34,7 @@ services:
           - "7002:6379"
         restart: always
 
-    redis-7003:
+    eport-redis-7003:
         build:
             context: .
             dockerfile: Dockerfile
@@ -50,7 +50,7 @@ services:
           - "7003:6379"
         restart: always
 
-    redis-7004:
+    eport-redis-7004:
         build:
             context: .
             dockerfile: Dockerfile
@@ -66,7 +66,7 @@ services:
           - "7004:6379"
         restart: always
 
-    redis-7005:
+    eport-redis-7005:
         build:
             context: .
             dockerfile: Dockerfile
@@ -82,7 +82,7 @@ services:
           - "7005:6379"
         restart: always
 
-    redis-7006:
+    eport-redis-7006:
         build:
             context: .
             dockerfile: Dockerfile
