@@ -100,5 +100,5 @@ services:
 
 networks:
   database:
-    driver: bridge
+    driver: overlay
     name: net_database
