@@ -6,8 +6,8 @@ namespace Snp.ePort.Service.RedisCaching
 {
     public class RedisCacheService : BaseService, IRedisCacheService
     {
-        private readonly IRedisConnection _connection;
-        private readonly IDatabase _db;
+        //private readonly IRedisConnection _connection;
+        //private readonly IDatabase _db;
 
         public RedisCacheService(IDistributedCache cache) : base(cache)
         {
