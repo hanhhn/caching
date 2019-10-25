@@ -14,7 +14,7 @@ services:
         volumes:
             - "/app/redis/7001:/data"
         ports:
-          - "7001:6379"
+          - "6001:6379"
         restart: always
 
     redis-7002:
@@ -29,7 +29,7 @@ services:
         volumes:
             - "/app/redis/7002:/data"
         ports:
-          - "7002:6379"
+          - "6002:6379"
         restart: always
 
     redis-7003:
@@ -44,7 +44,7 @@ services:
         volumes:
             - "/app/redis/7003:/data"
         ports:
-          - "7003:6379"
+          - "6003:6379"
         restart: always
 
     redis-7004:
@@ -59,7 +59,7 @@ services:
         volumes:
             - "/app/redis/7004:/data"
         ports:
-          - "7004:6379"
+          - "6004:6379"
         restart: always
 
     redis-7005:
@@ -74,7 +74,7 @@ services:
         volumes:
             - "/app/redis/7005:/data"
         ports:
-          - "7005:6379"
+          - "6005:6379"
         restart: always
 
     redis-7006:
@@ -89,7 +89,7 @@ services:
         volumes:
             - "/app/redis/7006:/data"
         ports:
-          - "7006:6379"
+          - "6006:6379"
         restart: always
 
 networks:
