@@ -8,6 +8,8 @@ COPY $FILECONF /usr/local/etc/redis/redis.conf
 
 EXPOSE 6379
 
+EXPOSE 16379
+
 VOLUME [ "/data" ]
 
 CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
