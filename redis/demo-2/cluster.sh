@@ -18,7 +18,3 @@ echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."
 echo 'yes' | docker run -i --rm --net $network_database redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 1;
 
-
-
-docker run -i --rm --net net_database_redis redis:latest redis-cli --cluster create 172.20.0.7:6379 172.20.0.6:6379 172.20.0.4:6379 172.20.0.2:6379 172.20.0.5:6379 172.20.0.3:6379 --cluster-replicas 1;
-
