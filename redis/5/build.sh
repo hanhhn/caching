@@ -5,6 +5,7 @@ for port in `seq 7001 7009`; do \
     sudo rm -rf "/app/redis/"$port
     echo "remove /app/redis/"$port
     sudo ufw allow $port
+    sudo ufw allow "1"$port
 done
 
 docker-compose -f docker-compose.yml up -d --build
