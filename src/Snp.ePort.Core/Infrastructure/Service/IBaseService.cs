@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
+using Snp.ePort.Core.BaseDto;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace Snp.ePort.Core.Infrastructure.Service
         Task RefreshAsync(string key, CancellationToken token = default);
         void Remove(string key);
         Task RemoveAsync(string key, CancellationToken token = default);
-        void Set(string key, string value);
-        Task SetAsync(string key, string value, CancellationToken token = default);
+        void Set(CacheDto cache);
+        Task SetAsync(CacheDto cache);
     }
 }

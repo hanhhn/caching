@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Snp.ePort.Core.BaseDto;
 using Snp.ePort.Service.RedisCaching;
 using System;
 using System.Threading.Tasks;
@@ -25,9 +26,9 @@ namespace Snp.ePort.Api.Controllers
 
         [HttpPost]
         [Route("set")]
-        public Task Set(string key, string value)
+        public Task Set([FromBody] CacheDto cache)
         {
-            return _redisService.SetAsync(key, value);
+            return _redisService.SetAsync(cache);
         }
 
         [HttpDelete]

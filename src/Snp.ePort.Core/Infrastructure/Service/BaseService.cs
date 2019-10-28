@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
+using Snp.ePort.Core.BaseDto;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,13 +9,10 @@ namespace Snp.ePort.Core.Infrastructure.Service
     public class BaseService : IBaseService
     {
         private readonly IDistributedCache _cache;
-        private readonly DistributedCacheEntryOptions options;
 
         public BaseService(IDistributedCache cache)
         {
             _cache = cache;
-            options = new DistributedCacheEntryOptions();
-            options.SetSlidingExpiration(TimeSpan.FromDays(365));
         }
 
         public string Get(string key)
@@ -47,14 +45,18 @@ namespace Snp.ePort.Core.Infrastructure.Service
             return _cache.RemoveAsync(key, token);
         }
 
-        public void Set(string key, string value)
+        public void Set(CacheDto cache)
         {
-            _cache.SetString(key, value, options);
+            var options = new DistributedCacheEntryOptions();
+            options.SetSlidingExpiration(cache.ExpireTime <= 0 ? TimeSpan.FromDays(30) : TimeSpan.FromDays(cache.ExpireTime));
+            _cache.SetString(cache.Key, cache.Value, options);
         }
 
-        public Task SetAsync(string key, string value, CancellationToken token = default)
+        public Task SetAsync(CacheDto cache)
         {
-            return _cache.SetStringAsync(key, value, options, token);
+            var options = new DistributedCacheEntryOptions();
+            options.SetSlidingExpiration(cache.ExpireTime <= 0 ? TimeSpan.FromDays(30) : TimeSpan.FromDays(cache.ExpireTime));
+            return _cache.SetStringAsync(cache.Key, cache.Value, options, cache.Token);
         }
     }
 }
