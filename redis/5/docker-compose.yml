@@ -149,7 +149,7 @@ services:
         networks:
             - database
         volumes:
-            - "/app/redis/7006:/data"
+            - "/app/redis/7009:/data"
         ports:
           - "7009:6379"
           - "17009:16379"
