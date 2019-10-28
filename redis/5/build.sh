@@ -5,8 +5,12 @@ for port in `seq 7001 7009`; do \
     sudo rm -rf "/app/redis/"$port
     echo "remove /app/redis/"$port
     sudo ufw allow $port
-    sudo ufw allow "1"$port
 done
+
+for port in `seq 17001 17009`; do \
+    sudo ufw allow $port
+done
+
 
 docker-compose -f docker-compose.yml up -d --build
 
@@ -34,4 +38,6 @@ echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."
 echo 'yes' | docker run -i --rm --net host redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 2;
 
-
+for port in `seq 17001 17009`; do \
+    sudo ufw delete allow $port
+done
