@@ -6,7 +6,7 @@ network_database='net_database'
 
 cluster_hosts=''
 
-for port in `seq 7001 7006`; do \
+for port in `seq 7001 7009`; do \
     hostip=`hostname -I | awk '{print $1}'`
     echo "IP for cluster node redis-"$port "is "$hostip":"$port
     cluster_hosts="$cluster_hosts$hostip":"$port ";
