@@ -28,7 +28,6 @@ for port in `seq 7001 7009`; do \
     echo "IP for cluster node redis-"$port "is "$hostip":"$port
     cluster_hosts="$cluster_hosts$hostip":"$port ";
     echo $hostip":"$port >> ../hostip.txt
-    echo "," >> ../hostip.txt
 done
 
 sleep 5
