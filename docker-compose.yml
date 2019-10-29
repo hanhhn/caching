@@ -6,7 +6,7 @@ services:
         ports:
             - "8001:8001"
         environment: 
-            - ASPNETCORE_ENVIRONMENT: "Production"
+            - ASPNETCORE_ENVIRONMENT: Production
         deploy:
             mode: replicated
             replicas: 3
