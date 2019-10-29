@@ -2,19 +2,21 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build-env
 
 LABEL maintainer="hanhhn@saigonnewport.com.vn"
 
-COPY / /src
+COPY / /source
 
-WORKDIR /src
+WORKDIR /source
 
 RUN dotnet restore
 
-RUN dotnet publish src/Snp.ePort.Api/Snp.ePort.Api.csproj -c Release -o out
+WORKDIR /source/src/Snp.ePort.Api
 
-COPY /server/hostip.txt --from=build-env/src/Snp.ePort.Api/out/hostip.txt
+RUN dotnet publish -c Release -o out
+
+COPY /server/hostip.txt /source/src/Snp.ePort.Api/out/hostip.txt
 
 FROM mcr.microsoft.com/dotnet/core/runtime:3.0
 
-COPY --from=build-env /src/src/Snp.ePort.Api/out /app
+COPY --from=build-env /source/src/Snp.ePort.Api/out /app
 
 WORKDIR /app
 
