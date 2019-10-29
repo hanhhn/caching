@@ -6,11 +6,11 @@ COPY . /app
 
 RUN cd /app
 
-RUN dotnet restore src/Snp.ePort.Api/Snp.ePort.Api.csproj
+RUN echo "$ls"
+
+RUN dotnet restore
 
 RUN dotnet publish src/Snp.ePort.Api/Snp.ePort.Api.csproj -c Release -o out
-
-WORKDIR /
 
 COPY /app/server/hostip.txt --from=build-env/src/Snp.ePort.Api/out
 
