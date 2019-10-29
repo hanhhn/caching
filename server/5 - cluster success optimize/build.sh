@@ -27,13 +27,13 @@ for port in `seq 7001 7009`; do \
     hostip=`hostname -I | awk '{print $1}'`
     echo "IP for cluster node redis-"$port "is "$hostip":"$port
     cluster_hosts="$cluster_hosts$hostip":"$port ";
+    echo $hostip":"$port >> ../hostip.txt
+    echo "," >> ../hostip.txt
 done
 
 sleep 5
 
-echo $cluster_hosts > hostip.txt
-
-echo "cluster hosts "$cluster_hosts
+echo "Cluster hosts "$cluster_hosts
 echo "creating cluster...."
 echo 'yes' | docker run -i --rm --net host redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 2;
 
