@@ -22,4 +22,4 @@ WORKDIR /app
 
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "Snp.ePort.Api.dll","--launch-profile","Production"]
+ENTRYPOINT ["dotnet", "Snp.ePort.Api.dll"]

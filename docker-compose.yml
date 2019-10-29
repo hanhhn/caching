@@ -2,25 +2,12 @@ version: '3.7'
 
 services:
     api:
+        build:
+            context: .
+            dockerfile: Dockerfile
         image: eport-redis-api
+        environment: 
+            - ASPNETCORE_ENVIRONMENT: Production
         ports:
             - "8000:80"
-        deploy:
-            mode: replicated
-            replicas: 3
-            restart_policy:
-                condition: any
-    nginx:
-        image: eport-redis-nginx
-        depends_on:
-            - api
-        volumes:
-            - /app/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-        ports:
-          - "80:80"
-        deploy:
-            mode: replicated
-            replicas: 1
-            restart_policy:
-                condition: any
-
+        restart: always
