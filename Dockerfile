@@ -10,7 +10,7 @@ RUN dotnet restore
 
 RUN dotnet publish src/Snp.ePort.Api/Snp.ePort.Api.csproj -c Release -o out
 
-COPY /app/server/hostip.txt --from=build-env/src/Snp.ePort.Api/out
+COPY /app/server/hostip.txt --from=build-env/src/Snp.ePort.Api/out/hostip.txt
 
 FROM mcr.microsoft.com/dotnet/core/runtime:3.0
 
