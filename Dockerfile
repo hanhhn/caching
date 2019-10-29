@@ -2,11 +2,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build-env
 
 LABEL maintainer="hanhhn@saigonnewport.com.vn"
 
-COPY . /app
+COPY * /app
 
-RUN cd /app
-
-RUN echo "$ls"
+WORKDIR /app
 
 RUN dotnet restore
 
