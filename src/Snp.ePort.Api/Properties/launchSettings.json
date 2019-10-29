@@ -2,10 +2,6 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
-    "iis": {
-      "applicationUrl": "http://localhost/Cf.Ksc",
-      "sslPort": 0
-    },
     "iisExpress": {
       "applicationUrl": "http://localhost:34990",
       "sslPort": 44359
@@ -28,7 +24,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
-      "applicationUrl": "http://localhost:5001;"
+      "applicationUrl": "http://localhost:8001;"
     }
   }
 }

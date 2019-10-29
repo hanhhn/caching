@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Snp.ePort.Core.Exeptions;
+using Snp.ePort.Core.Infrastructure.Engine;
+using Snp.ePort.Core.Infrastructure.File;
+using System.Collections.Generic;
 
 namespace Snp.ePort.Api.Configurations
 {
     public static class CachingConfigure
     {
-        public static void AddCaching(this IServiceCollection services, IWebHostEnvironment hostContext, IConfiguration config)
+        public static void AddCaching(this IServiceCollection services, IConfiguration config)
         {
-            switch(config["CacheMode"])
+
+
+            switch (config["CacheMode"])
             {
                 case "SQL":
                     services.AddDistributedSqlServerCache(options =>
@@ -21,9 +25,17 @@ namespace Snp.ePort.Api.Configurations
                     break;
 
                 case "Redis":
+                    var fileReader = EngineContext.Current.Resolve<IFileReader>();
+                    List<string> connecting = fileReader.ReadAll();
+
+                    if (connecting == null || connecting.Count == 0)
+                    {
+                        throw new NotFoundException("Can not be found redis connection string");
+                    }
+
                     services.AddStackExchangeRedisCache(options =>
                     {
-                        options.Configuration = "172.16.50.189:7001,172.16.50.189:7002,172.16.50.189:7003,172.16.50.189:7004,172.16.50.189:7005,172.16.50.189:7006,172.16.50.189:7007,172.16.50.189:7008,172.16.50.189:7009";
+                        options.Configuration = string.Join(",", connecting);
                     });
                     break;
 

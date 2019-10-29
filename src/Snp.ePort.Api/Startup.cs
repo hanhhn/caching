@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Snp.ePort.Api.Configurations;
+using Snp.ePort.Core;
 
 namespace Snp.ePort.Api
 {
@@ -26,7 +27,9 @@ namespace Snp.ePort.Api
 
             services.AddControllers();
 
-            services.AddCaching(HostContext, Configuration);
+            services.AddCoreService(Configuration);
+
+            services.AddCaching(Configuration);
 
             services.AddCustomServices();
         }
