@@ -17,7 +17,6 @@ docker-compose -f docker-compose.yml up -d --build
 sleep 3
 
 docker ps -a
-sudo bash cluster.sh
 
 network_database='net_database'
 #---------- create the cluster ------------------------
