@@ -38,6 +38,6 @@ echo "cluster hosts "$cluster_hosts
 echo "creating cluster...."
 echo 'yes' | docker run -i --rm --net host redis:latest redis-cli --cluster create $cluster_hosts --cluster-replicas 2;
 
-for port in `seq 17001 17009`; do \
-    sudo ufw delete allow $port
-done
+# for port in `seq 17001 17009`; do \
+#     sudo ufw delete allow $port
+# done
