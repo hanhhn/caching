@@ -6,7 +6,9 @@ WORKDIR /
 
 COPY . /app
 
-RUN cd /app && ll
+RUN cd /app
+
+RUN  ll
 
 RUN dotnet restore
 
