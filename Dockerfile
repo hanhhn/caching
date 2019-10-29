@@ -14,7 +14,7 @@ COPY /server/hostip.txt --from=build-env/src/Snp.ePort.Api/out/hostip.txt
 
 FROM mcr.microsoft.com/dotnet/core/runtime:3.0
 
-COPY --from=build-env /src/Snp.ePort.Api/out /app
+COPY --from=build-env /src/src/Snp.ePort.Api/out /app
 
 WORKDIR /app
 
