@@ -1,4 +1,4 @@
-FROM 3.0.100-bionic as build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build-env
 
 LABEL maintainer="hanhhn@saigonnewport.com.vn"
 
@@ -16,7 +16,7 @@ WORKDIR /
 
 COPY /app/server/hostip.txt --from=build-env/src/Snp.ePort.Api/out
 
-FROM microsoft/dotnet:aspnetcore-runtime
+FROM mcr.microsoft.com/dotnet/core/runtime:3.0
 
 COPY --from=build-env /src/Snp.ePort.Api/out .
 
