@@ -2,9 +2,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build-env
 
 LABEL maintainer="hanhhn@saigonnewport.com.vn"
 
-COPY / /app
+COPY / /src
 
-WORKDIR /app
+WORKDIR /src
 
 RUN dotnet restore
 
@@ -14,7 +14,9 @@ COPY /app/server/hostip.txt --from=build-env/src/Snp.ePort.Api/out/hostip.txt
 
 FROM mcr.microsoft.com/dotnet/core/runtime:3.0
 
-COPY --from=build-env /src/Snp.ePort.Api/out .
+COPY --from=build-env /src/Snp.ePort.Api/out /app
+
+WORKDIR /app
 
 EXPOSE 8001
 
