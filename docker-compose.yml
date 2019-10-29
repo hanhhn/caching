@@ -5,7 +5,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: eport-redis-api
+        image: redis-api
+        container_name: eport-redis-api
         environment: 
             ASPNETCORE_ENVIRONMENT: Production
         ports:
