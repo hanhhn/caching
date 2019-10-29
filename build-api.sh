@@ -4,8 +4,8 @@ sleep 3
 docker build -t eport-redis-api .
 docker build -t eport-redis-nginx ./nginx
 
-echo "Build eport_redis service"
+echo "Build eport_redis stack..."
 sleep 2
 
-docker-compose stack deploy -f docker-compose.yml  eport_redis
-docker-compose stack lsdocker
+docker stack deploy -c docker-compose.yml eport_redis
+docker stack ps eport_redis

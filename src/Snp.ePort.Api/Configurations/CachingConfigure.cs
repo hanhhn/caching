@@ -11,8 +11,6 @@ namespace Snp.ePort.Api.Configurations
     {
         public static void AddCaching(this IServiceCollection services, IConfiguration config)
         {
-
-
             switch (config["CacheMode"])
             {
                 case "SQL":

@@ -19,12 +19,12 @@
     },
     "Production": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/caches",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
-      "applicationUrl": "http://localhost:8001;"
+      "applicationUrl": "http://localhost:8001"
     }
   }
 }

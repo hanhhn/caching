@@ -6,7 +6,7 @@ WORKDIR /
 
 COPY . /app
 
-RUN cd /app
+RUN cd /app && ll
 
 RUN dotnet restore
 
@@ -22,4 +22,4 @@ COPY --from=build-env /src/Snp.ePort.Api/out .
 
 EXPOSE 8001
 
-ENTRYPOINT ["dotnet", "Snp.ePort.Api.dll"]
+ENTRYPOINT ["dotnet", "Snp.ePort.Api.dll","--launch-profile","Production"]
