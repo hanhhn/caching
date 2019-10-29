@@ -20,6 +20,10 @@ COPY --from=build /source/src/Snp.ePort.Api/out /app
 
 WORKDIR /app
 
+EXPOSE 80
+
+EXPOSE 443
+
 EXPOSE 8001
 
 ENTRYPOINT ["dotnet", "Snp.ePort.Api.dll","--launch-profile","Production"]
