@@ -6,9 +6,7 @@ COPY . /app
 
 RUN cd /app
 
-CMD ls
-
-RUN dotnet restore
+RUN dotnet restore src/Snp.ePort.Api/Snp.ePort.Api.csproj
 
 RUN dotnet publish src/Snp.ePort.Api/Snp.ePort.Api.csproj -c Release -o out
 
