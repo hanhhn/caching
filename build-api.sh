@@ -1,4 +1,4 @@
-echo "Build eport_redis_api..."
+echo "Build eport redis api..."
 sleep 2
 
 docker-compose -f docker-compose.yml up -d --build

@@ -9,6 +9,13 @@ services:
         container_name: eport-redis-api
         environment: 
             ASPNETCORE_ENVIRONMENT: Production
+        networks: 
+            - database
         ports:
             - "8000:80"
         restart: always
+
+networks:
+    database:
+        driver: bridge
+        name: eport_redis_network
