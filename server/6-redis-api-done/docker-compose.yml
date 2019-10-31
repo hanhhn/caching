@@ -1,0 +1,89 @@
+version: '3.7'
+
+services:
+
+    redis-7001:
+        image: snp-redis
+        container_name: eport-redis-7001
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7001:/data"
+        restart: always
+
+    redis-7002:
+        image: snp-redis
+        container_name: eport-redis-7002
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7002:/data"
+        restart: always
+
+    redis-7003:
+        image: snp-redis
+        container_name: eport-redis-7003
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7003:/data"
+        restart: always
+
+    redis-7004:
+        image: snp-redis
+        container_name: eport-redis-7004
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7004:/data"
+        restart: always
+
+    redis-7005:
+        image: snp-redis
+        container_name: eport-redis-7005
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7005:/data"
+        restart: always
+
+    redis-7006:
+        image: snp-redis
+        container_name: eport-redis-7006
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7006:/data"
+        restart: always
+
+    redis-7007:
+        image: snp-redis
+        container_name: eport-redis-7007
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7007:/data"
+        restart: always        
+
+    redis-7008:
+        image: snp-redis
+        container_name: eport-redis-7008
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7008:/data"
+        restart: always
+
+    redis-7009:
+        image: snp-redis
+        container_name: eport-redis-7009
+        networks:
+            - database
+        volumes:
+            - "/app/redis/7009:/data"
+        restart: always
+
+networks:
+  database:
+    driver: bridge
+    name: snp_redis_network

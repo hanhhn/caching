@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: redis-api
+        image: snp-redis-api
         container_name: eport-redis-api
         environment: 
             ASPNETCORE_ENVIRONMENT: Production
@@ -18,4 +18,4 @@ services:
 networks:
     database:
         driver: bridge
-        name: eport_redis_network
+        name: snp_redis_network

@@ -1,10 +1,8 @@
 FROM redis:5.0.6
 
-ARG FILECONF
-
 LABEL maintainer="hanhhn@saigonnewport.com.vn"
 
-COPY $FILECONF /usr/local/etc/redis/redis.conf
+COPY app.conf /usr/local/etc/redis/redis.conf
 
 EXPOSE 6379
 
