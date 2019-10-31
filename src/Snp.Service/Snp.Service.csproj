@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="RedisCaching\IRedisConnection.cs" />
+    <Compile Remove="RedisCaching\RedisConnection.cs" />
+    <Compile Remove="RedisCaching\RedisDatabaseNumber.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Snp.Core\Snp.Core.csproj" />
+  </ItemGroup>
+
+</Project>
