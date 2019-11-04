@@ -1,6 +1,11 @@
 echo "Implement for Docker version 18.09.7"
 echo "Current version: " && docker --version
 
+for port in `seq 7001 7009`; do \
+    sudo rm -rf "/app/redis/"$port
+    echo "remove /app/redis/"$port
+done
+
 docker build -t snp-redis
 
 docker-compose -f docker-compose.yml up

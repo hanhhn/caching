@@ -86,4 +86,4 @@ services:
 networks:
   database:
     driver: bridge
-    name: snp_redis_network
+    name: eport_redis_network
