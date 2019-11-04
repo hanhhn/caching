@@ -8,7 +8,7 @@ done
 
 docker build -t snp-redis:latest .
 
-docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml up -d
 
 sleep 3
 cluster_hosts=''
