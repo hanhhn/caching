@@ -6,7 +6,7 @@ for port in `seq 7001 7009`; do \
     echo "remove /app/redis/"$port
 done
 
-docker build -t snp-redis
+docker build -t snp-redis:latest .
 
 docker-compose -f docker-compose.yml up
 
