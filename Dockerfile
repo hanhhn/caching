@@ -8,15 +8,15 @@ WORKDIR /source
 
 RUN dotnet restore
 
-WORKDIR /source/src/Snp.ePort.Api
+WORKDIR /source/src/Snp.Api
 
 RUN dotnet publish -c Release -o out
 
-COPY /server/hostip.txt /source/src/Snp.ePort.Api/out/hostip.txt
+COPY /server/hostip.txt /source/src/Snp.Api/out/hostip.txt
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
 
-COPY --from=build /source/src/Snp.ePort.Api/out /app
+COPY --from=build /source/src/Snp.Api/out /app
 
 WORKDIR /app
 
