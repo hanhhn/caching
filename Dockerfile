@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build
 
-LABEL maintainer="hanhhn@saigonnewport.com.vn"
+LABEL maintainer="hngochanh@outlook.com"
 
 COPY / /source
 
