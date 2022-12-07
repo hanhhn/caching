@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-LABEL maintainer="hanhhn@saigonnewport.com.vn"
+LABEL maintainer="hngochanh@outlook.com"
 
 COPY app.conf /etc/nginx/nginx.conf
 
